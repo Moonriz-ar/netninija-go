@@ -1,0 +1,4 @@
+Bill breakdown: 
+empanada:                 ...$1.5 
+tip:                      ...$5.00 
+total:                    ...$6.50 
