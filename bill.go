@@ -1,18 +1,37 @@
 package main
 
+import "fmt"
+
 type bill struct {
-	name string
-	item map[string]float64
-	tip  float64
+	name  string
+	items map[string]float64
+	tip   float64
 }
 
 // make new bills
-func newBill(name string) bill {
+func newBill(name string, items map[string]float64) bill {
 	b := bill{
-		name: name,
-		item: map[string]float64{},
-		tip:  0,
+		name:  name,
+		items: items,
+		tip:   0,
 	}
 
 	return b
+}
+
+// receiver function: function format the bill, associated with bill object
+func (b bill) format() string {
+	fs := "Bill breakdown: \n"
+	var total float64 = 0
+
+	// list items
+	for key, value := range b.items {
+		fs += fmt.Sprintf("%-25v ...$%v \n", key+":", value)
+		total += value
+	}
+
+	// total
+	fs += fmt.Sprintf("%-25v ...$%0.2f", "total:", total)
+
+	return fs
 }
