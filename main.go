@@ -3,7 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	myBill := newBill("mario's bill", map[string]float64{"pie": 5.99, "cake": 3.99})
+	myBill := newBill("mario's bill")
+	myBill.updateTip(30)
+	myBill.addItem("onion soup", 4.50)
+	myBill.addItem("veg pie", 8.95)
+	myBill.addItem("toffee pudding", 4.95)
+	myBill.addItem("coffee", 3.25)
 
 	fmt.Println(myBill.format())
 }
